@@ -116,6 +116,10 @@ html {
   background-color: var(--primary-color);
 }
 
+.login-buttons > input:last-child {
+  background-color: #b9b7bd;
+}
+
 .professional,
 .personal,
 .education {
@@ -172,6 +176,10 @@ html {
   width: 48%;
 }
 
+.signup-buttons > input:first-child {
+  background-color: #b9b7bd;
+}
+
 .signup-buttons > input:hover {
   background-color: black !important;
   color: white;
@@ -197,8 +205,5 @@ html {
   }
   .formStyle {
     width: 80vw;
-  }
-  .twoField {
-    flex-direction: column;
   }
 }
