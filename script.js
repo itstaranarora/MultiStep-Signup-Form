@@ -1,5 +1,3 @@
-//alertify.alert("Citoto", "Alert Message!");
-
 const login = document.querySelector(".login");
 const signup = document.querySelector(".signup");
 const personal = document.querySelector(".personal");
@@ -9,6 +7,7 @@ const personalTab = document.querySelector(".presonalTab");
 const professionalTab = document.querySelector(".professionalTab");
 const educationTab = document.querySelector(".educationTab");
 const signupForm = document.forms["signupForm"];
+const usernames = [];
 
 const showAlert = (text) => alertify.alert("Citoto", text);
 
@@ -62,7 +61,26 @@ const validateProfessionalForm = () => {
   return true;
 };
 
-const validateEducationForm = () => {
+function generateUniqueUsername(username) {
+  const firstName = signupForm["fname"].value;
+  const lastName = signupForm["lname"].value;
+  if (firstName && lastName) {
+    let username = `${firstName}${lastName[0]}`;
+    let user = usernames.find((name) => name === username);
+    let number = 0;
+    while (user) {
+      number++;
+      username = `${firstName}${lastName[0]}${number}`;
+      user = usernames.find((name) => name === username);
+    }
+    signupForm["username"].value = username;
+  } else {
+    showAlert("Please enter First Name and Last Name");
+    signupForm["username"].value = "";
+  }
+}
+
+const submitForm = () => {
   if (signupForm["grade"].value == "") {
     showAlert("Please Enter Your Grade!");
     return false;
@@ -75,29 +93,13 @@ const validateEducationForm = () => {
     showAlert("Please Enter Your School Name!");
     return false;
   }
-  alertify.alert("Citoto", "Your account has been created", () =>
-    location.reload()
-  );
+  alertify.alert("Citoto", "Your account has been created", () => {
+    toLogin();
+    usernames.push(signupForm["username"].value);
+    signupForm.reset();
+    console.log("Users List: ", usernames);
+  });
   return true;
-};
-
-signupForm["username"].value;
-let firstName;
-let lastName;
-const getFirstName = (e) => {
-  firstName = e.value;
-  if (firstName && lastName) {
-    signupForm["username"].value = firstName + lastName[0];
-  } else {
-    signupForm["username"].value = "";
-  }
-};
-
-const getLastName = (e) => {
-  lastName = e.value;
-  if (firstName && lastName) {
-    signupForm["username"].value = firstName + lastName[0];
-  }
 };
 
 const hide = (element) => element.classList.add("hide");
@@ -122,17 +124,6 @@ const selectTab = (tab) => {
     select(educationTab);
     unSelect(professionalTab);
     unSelect(personalTab);
-  }
-};
-
-const showPage = (page) => {
-  if (page === login) {
-    hide(signup);
-    show(login);
-  }
-  if (page == signup) {
-    show(signup);
-    hide(login);
   }
 };
 
@@ -163,12 +154,15 @@ const showForm = (form) => {
   }
 };
 
-//Button actions
 const toSignup = (e) => {
-  showPage(signup);
+  show(signup);
+  hide(login);
   showForm(personal);
 };
 
 const toLogin = (e) => {
-  showPage(login);
+  hide(signup);
+  show(login);
+  personalTab.classList.remove("check");
+  professionalTab.classList.remove("check");
 };

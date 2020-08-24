@@ -48,28 +48,23 @@
           <form name="signupForm" class="formStyle">
             <div class="personal">
               <div class="twoField">
-                <input
-                  type="text"
-                  oninput="getFirstName(this)"
-                  name="fname"
-                  placeholder="First Name *"
-                />
+                <input type="text" name="fname" placeholder="First Name *" />
                 <input type="text" name="mname" placeholder="Middle Name" />
-                <input
-                  type="text"
-                  oninput="getLastName(this)"
-                  name="lname"
-                  placeholder="Last Name *"
-                />
+                <input type="text" name="lname" placeholder="Last Name *" />
               </div>
               <input type="email" name="email" placeholder="Email *" />
               <input type="tel" name="phone" placeholder="Phone Number *" />
-              <input
-                type="text"
-                name="username"
-                value=""
-                placeholder="Username *"
-              />
+              <div class="usernameField">
+                <input
+                  type="text"
+                  name="username"
+                  value=""
+                  placeholder="Username *"
+                />
+                <div onclick="generateUniqueUsername()">
+                  <i class="fas fa-cogs"></i>
+                </div>
+              </div>
               <input type="password" name="password" placeholder="Password *" />
               <div class="signup-buttons">
                 <input
@@ -159,11 +154,7 @@
                   type="button"
                   value="Go Back"
                 />
-                <input
-                  onclick="validateEducationForm()"
-                  type="button"
-                  value="Next"
-                />
+                <input type="button" onclick="submitForm()" value="Create" />
               </div>
             </div>
           </form>
