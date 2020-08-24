@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #f79489;
+  --background-color: #f9f1f0;
+  --secondary-color: #fadcd9;
+  --main-color: #f79489;
+}
+
+#root,
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.login,
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login {
+  margin: 5rem;
+}
+
+.signup {
+  margin: 0 5rem;
+}
+
+.login > h2 {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.signup > h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30vw;
+}
+
+.formStyle input {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border: 2px solid #efefef;
+}
+
+.twoField {
+  display: flex;
+}
+
+.twoField > input:first-child {
+  margin-right: 0.3rem;
+}
+.twoField > input:last-child {
+  margin-left: 0.3rem;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login-buttons > input {
+  border: none;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  width: 48%;
+}
+
+.login-buttons > input:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.login-buttons > input:first-child {
+  background-color: var(--primary-color);
+}
+
+.professional,
+.personal,
+.education {
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.progressBar {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  background-color: #b9b7bd;
+}
+
+.bar-items {
+  padding: 1rem 0;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  color: var(--background-color);
+}
+
+.select {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check > i {
+  display: block !important;
+  margin-left: 0.5rem;
+}
+
+.signup-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+
+.signup-buttons > input {
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  width: 48%;
+}
+
+.signup-buttons > input:hover {
+  background-color: black !important;
+  color: white;
+}
+
+.signup-buttons > input:last-child {
+  background-color: var(--primary-color);
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .content-box {
+    width: 95%;
+    height: 95%;
+  }
+  .login {
+    margin: 4rem 1rem;
+    width: 100%;
+  }
+  .signup {
+    margin: 0;
+    width: 100%;
+  }
+  .formStyle {
+    width: 80vw;
+  }
+  .twoField {
+    flex-direction: column;
+  }
+}

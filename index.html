@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citoto Task</title>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
+    />
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-box">
+        <div class="login">
+          <h2>Welcome!</h2>
+          <form name="loginForm" class="formStyle">
+            <input type="text" required placeholder="Enter Username" />
+            <input type="password" required placeholder="Enter Password" />
+            <div class="login-buttons">
+              <input type="submit" value="Sign In" />
+              <input type="button" onclick="toSignup()" value="Sign Up" />
+            </div>
+          </form>
+        </div>
+        <div class="signup hide">
+          <div class="progressBar">
+            <div onclick="showForm(personal)" class="bar-items presonalTab">
+              <span>Personal</span>
+              <i class="fas fa-check-square hide"></i>
+            </div>
+            <div
+              onclick="showForm(professional)"
+              class="bar-items professionalTab"
+            >
+              <span>Professional</span>
+              <i class="fas fa-check-square hide"></i>
+            </div>
+            <div onclick="showForm(education)" class="bar-items educationTab">
+              <span>Education</span>
+              <i class="fas fa-check-square hide"></i>
+            </div>
+          </div>
+          <h2>Enter your details</h2>
+          <form name="signupForm" class="formStyle">
+            <div class="personal">
+              <div class="twoField">
+                <input
+                  type="text"
+                  oninput="getFirstName(this)"
+                  name="fname"
+                  placeholder="First Name *"
+                />
+                <input type="text" name="mname" placeholder="Middle Name" />
+                <input
+                  type="text"
+                  oninput="getLastName(this)"
+                  name="lname"
+                  placeholder="Last Name *"
+                />
+              </div>
+              <input type="email" name="email" placeholder="Email *" />
+              <input type="tel" name="phone" placeholder="Phone Number *" />
+              <input
+                type="text"
+                name="username"
+                value=""
+                placeholder="Username *"
+              />
+              <input type="password" name="password" placeholder="Password *" />
+              <div class="signup-buttons">
+                <input
+                  onclick="toLogin()"
+                  type="button"
+                  value="Back to Login"
+                />
+                <input
+                  onclick="showForm(professional)"
+                  type="button"
+                  value="Next"
+                />
+              </div>
+            </div>
+            <div class="professional hide">
+              <div class="twoField">
+                <input
+                  type="text"
+                  required
+                  name="currentjob"
+                  placeholder="Current Job Title - Ex: Retail Sales Manager *"
+                />
+                <input
+                  type="text"
+                  required
+                  name="jobtype"
+                  placeholder="Type - Ex: Full-Time *"
+                />
+              </div>
+              <input
+                type="text"
+                name="company"
+                required
+                placeholder="Where do you currently work? *"
+              />
+              <input
+                type="text"
+                name="companyType"
+                required
+                placeholder="Company Type - Ex: Startup *"
+              />
+              <input
+                type="text"
+                required
+                placeholder="Region - Ex: London, United Kingdom"
+              />
+              <div class="twoField">
+                <input type="date" placeholder="Start Year" />
+                <input type="date" placeholder="End Year (or expected)" />
+              </div>
+              <div class="signup-buttons">
+                <input
+                  onclick="showForm(personal)"
+                  type="button"
+                  value="Go Back"
+                />
+                <input
+                  onclick="showForm(education)"
+                  type="button"
+                  value="Next"
+                />
+              </div>
+            </div>
+
+            <div class="education hide">
+              <input
+                type="text"
+                name="school"
+                required
+                placeholder="School *"
+              />
+              <input
+                type="text"
+                name="degree"
+                required
+                placeholder="Degree *"
+              />
+              <input type="text" placeholder="Field of study" />
+              <div class="twoField">
+                <input type="date" placeholder="Start Year" />
+                <input type="date" placeholder="End Year (or expected)" />
+              </div>
+              <input type="text" name="grade" required placeholder="Grade *" />
+              <div class="signup-buttons">
+                <input
+                  onclick="showForm(professional)"
+                  type="button"
+                  value="Go Back"
+                />
+                <input
+                  onclick="validateEducationForm()"
+                  type="button"
+                  value="Next"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
