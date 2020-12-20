@@ -19,7 +19,8 @@
           <h2>Welcome!</h2>
           <form name="loginForm" class="formStyle">
             <input type="text" required placeholder="Enter Username" />
-            <input type="password" required placeholder="Enter Password" />
+            <input type="password" id="password" required placeholder="Enter Password" />
+            <i style="padding-left: 240px; margin: 10px;" onclick="password_show()" class="fas fa-eye"></i>
             <div class="login-buttons">
               <input type="submit" value="Sign In" />
               <input type="button" onclick="toSignup()" value="Sign Up" />
@@ -65,7 +66,8 @@
                   <i class="fas fa-cogs"></i>
                 </div>
               </div>
-              <input type="password" name="password" placeholder="Password *" />
+              <input type="password" id="signup_password" name="password" placeholder="Password *" />
+              <i style="padding-left: 240px; margin: 10px;" onclick="signup_password_show()" class="fas fa-eye"></i>
               <div class="signup-buttons">
                 <input
                   onclick="toLogin()"
