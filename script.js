@@ -7,6 +7,8 @@ const personalTab = document.querySelector(".presonalTab");
 const professionalTab = document.querySelector(".professionalTab");
 const educationTab = document.querySelector(".educationTab");
 const signupForm = document.forms["signupForm"];
+const password = document.getElementById("password");
+const signup_password = document.getElementById("signup_password")
 const usernames = [];
 
 const showAlert = (text) => alertify.alert("Citoto", text);
@@ -165,4 +167,23 @@ const toLogin = (e) => {
   show(login);
   personalTab.classList.remove("check");
   professionalTab.classList.remove("check");
+};
+
+
+const password_show = () => {
+  if(password.type === "password"){
+    password.type = "text";
+  }
+  else {
+    password.type = "password";
+  };
+};
+
+const signup_password_show = () => {
+  if(signup_password.type === "password"){
+    signup_password.type = "text";
+  }
+  else {
+    signup_password.type = "password";
+  };
 };
