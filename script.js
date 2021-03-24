@@ -9,7 +9,7 @@ const educationTab = document.querySelector(".educationTab");
 const signupForm = document.forms["signupForm"];
 const usernames = [];
 
-const showAlert = (text) => alertify.alert("Citoto", text);
+const showAlert = (text) => alertify.alert("Form", text);
 
 const validatePersonalForm = () => {
   if (signupForm["fname"].value == "") {
@@ -93,7 +93,7 @@ const submitForm = () => {
     showAlert("Please Enter Your School Name!");
     return false;
   }
-  alertify.alert("Citoto", "Your account has been created", () => {
+  alertify.alert("Form", "Your account has been created", () => {
     toLogin();
     usernames.push(signupForm["username"].value);
     signupForm.reset();
